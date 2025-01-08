@@ -23,8 +23,8 @@ public class LinkedListDeque<T> {
     }
     public void addFirst(T item){
         Node newNode = new Node(item,head,head.next);
-        head.next.prev = newNode;
         head.next = newNode;
+        head.next.next.prev = head.next;
         size++;
     }
     public void addLast(T item){
@@ -43,6 +43,7 @@ public class LinkedListDeque<T> {
         Node current = head.next;
         while(current!=head){
             System.out.print(current.item+" ");
+            current = current.next;
         }
     }
     public T removeFirst(){
