@@ -1,5 +1,7 @@
 package randomizedtest;
 
+import edu.princeton.cs.algs4.StdRandom;
+
 /** Array based list.
  *  @author Josh Hug
  */
