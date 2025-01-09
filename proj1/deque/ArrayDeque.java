@@ -30,8 +30,8 @@ public class ArrayDeque<T> {
     public T removeFirst(){
         if(size == 0)return null;
         T item = deque[0];
-        for(int i =0;i<size;i++){
-            deque[i]=deque[i+1];
+        for(int i =1;i<=size;i++){
+            deque[i-1]=deque[i];
         }
         size--;
         if(size<deque.length/4)resize(deque.length/2);
