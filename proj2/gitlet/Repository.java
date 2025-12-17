@@ -60,7 +60,7 @@ public class Repository {
 
         // HEAD 指向 master
         Utils.writeContents(HEAD_FILE, "master");
-        System.out.println("Initialized an empty Gitlet repository.");
+        //System.out.println("Initialized an empty Gitlet repository.");
     }
 
 
