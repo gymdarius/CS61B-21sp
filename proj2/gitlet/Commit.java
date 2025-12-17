@@ -2,7 +2,11 @@ package gitlet;
 
 // TODO: any imports you need here
 
+import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date; // TODO: You'll likely use this in this class
+import java.util.Locale;
+import java.util.Map;
 
 /** Represents a gitlet commit object.
  *  TODO: It's a good idea to give a description here of what else this Class
@@ -10,7 +14,7 @@ import java.util.Date; // TODO: You'll likely use this in this class
  *
  *  @author TODO
  */
-public class Commit {
+public class Commit implements Serializable {
     /**
      * TODO: add instance variables here.
      *
@@ -21,6 +25,33 @@ public class Commit {
 
     /** The message of this Commit. */
     private String message;
+    private Date timestamp;
+    private String parent;
+    private Map<String,String> blobs;
 
     /* TODO: fill in the rest of this class. */
+
+    public Commit(String message, String parent, Map<String, String> blobs) {
+        this.message = message;
+        this.parent = parent;
+        this.blobs = blobs;
+        this.timestamp = (parent == null) ? new Date(0) : new Date();
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public String getTimestamp() {
+        SimpleDateFormat sdf = new SimpleDateFormat("EEE MMM dd HH:mm:ss yyyy Z", Locale.ENGLISH);
+        return sdf.format(timestamp);
+    }
+
+    public String getParent() {
+        return parent;
+    }
+
+    public Map<String, String> getBlobs() {
+        return blobs;
+    }
 }
